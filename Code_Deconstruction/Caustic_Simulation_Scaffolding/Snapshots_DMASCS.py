@@ -125,10 +125,10 @@ class Snapshots:
         self.PCH.Control_Model(a, Particles)
         
         '''Zel'dovich Model'''
-        self.PCH.Zeldovich_Approximation_Model(a, Particles, TL1, TL2, x, self.psi)
+        # self.PCH.Zeldovich_Approximation_Model(a, Particles, TL1, TL2, x, self.psi)
         
         '''Jacobian Model'''
-        self.PCH.Jacobian_Model(a, Particles, Sorted_Volumes, self.JBM.Counts)  
+        # self.PCH.Jacobian_Model(a, Particles, Sorted_Volumes, self.JBM.Counts)  
          
         '''Topology Model'''
         # if len(curves) > 0:
@@ -138,8 +138,8 @@ class Snapshots:
         # self.PCH.Geometric_Model(a, Particles, causticVector, causticParticle, totalFlips, currentSign, triangleMorph)
 
         '''Angle of Collapse Model'''
-        if len(collapseTheta) > 0:
-            self.PCH.Collapse_Angle_Model(a, Particles, collapseTheta)
+        # if len(collapseTheta) > 0:
+        #     self.PCH.Collapse_Angle_Model(a, Particles, collapseTheta)
         
             # '''[Tess Indx, P2 Index, P1 Index, P3 Index, Theta, P1xtC, P1ytC, P2xtC, P2ytC, P3xtC, P3ytC, a]'''  
             # collapseTheta = np.array(collapseTheta)
