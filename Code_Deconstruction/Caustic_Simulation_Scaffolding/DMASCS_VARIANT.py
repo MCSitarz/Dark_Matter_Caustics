@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan 22 18:09:01 2024
+Created on Tue Jun 16 13:30:29 2026
 @author: michaelsitarz
 DMASCS_v06: Dark Matter Analytical Simulation for Caustic Studies Version 06
 """

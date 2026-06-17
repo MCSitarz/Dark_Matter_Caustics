@@ -37,14 +37,14 @@ class Snapshots:
         self.tessHalos = np.zeros_like(self.UP.snap_array)
         self.tessExtra = np.zeros_like(self.UP.snap_array)
         
-        # self.jacFreeVol = np.zeros_like(self.UP.snap_array)
-        # self.jacFilamentsVol = np.zeros_like(self.UP.snap_array)
-        # self.jacHalosVol = np.zeros_like(self.UP.snap_array)
-        # self.jacExtraVol = np.zeros_like(self.UP.snap_array)
-        # self.tessFreeVol = np.zeros_like(self.UP.snap_array)
-        # self.tessFilamentsVol = np.zeros_like(self.UP.snap_array)
-        # self.tessHalosVol = np.zeros_like(self.UP.snap_array)
-        # self.tessExtraVol = np.zeros_like(self.UP.snap_array)
+        self.jacFreeVol = np.zeros_like(self.UP.snap_array)
+        self.jacFilamentsVol = np.zeros_like(self.UP.snap_array)
+        self.jacHalosVol = np.zeros_like(self.UP.snap_array)
+        self.jacExtraVol = np.zeros_like(self.UP.snap_array)
+        self.tessFreeVol = np.zeros_like(self.UP.snap_array)
+        self.tessFilamentsVol = np.zeros_like(self.UP.snap_array)
+        self.tessHalosVol = np.zeros_like(self.UP.snap_array)
+        self.tessExtraVol = np.zeros_like(self.UP.snap_array)
         
         '''Importing Parameters'''
         self.duration = self.UP.duration
@@ -81,27 +81,27 @@ class Snapshots:
             if a != 0.0 and a != self.a0:
                 a = self.next_Snap(a, self.da, i)
         
-        # SAVE_SEED = self.UP.Output_Folder + '/Participation_Counts_Arrays'
-        # if not os.path.exists(SAVE_SEED):
-        #     os.mkdir(SAVE_SEED)
+        SAVE_SEED = self.UP.Output_Folder + '/Participation_Counts_Arrays'
+        if not os.path.exists(SAVE_SEED):
+            os.mkdir(SAVE_SEED)
             
         
-        # np.savetxt(SAVE_SEED + '/' + 'zaFree.txt', self.zaFree)
-        # np.savetxt(SAVE_SEED + '/' + 'zaFilaments.txt', self.zaFilaments)
-        # np.savetxt(SAVE_SEED + '/' + 'zaHalos.txt', self.zaHalos)
-        # np.savetxt(SAVE_SEED + '/' + 'jacFree.txt', self.jacFree)
-        # np.savetxt(SAVE_SEED + '/' + 'jacFilaments.txt', self.jacFilaments)
-        # np.savetxt(SAVE_SEED + '/' + 'jacHalos.txt', self.jacHalos)
-        # np.savetxt(SAVE_SEED + '/' + 'jacExtra.txt', self.jacExtra)
-        # np.savetxt(SAVE_SEED + '/' + 'tessFree.txt', self.tessFree)
-        # np.savetxt(SAVE_SEED + '/' + 'tessFilaments.txt', self.tessFilaments)
-        # np.savetxt(SAVE_SEED + '/' + 'tessHalos.txt', self.tessHalos)
-        # np.savetxt(SAVE_SEED + '/' + 'tessExtra.txt', self.tessExtra)
+        np.savetxt(SAVE_SEED + '/' + 'zaFree.txt', self.zaFree)
+        np.savetxt(SAVE_SEED + '/' + 'zaFilaments.txt', self.zaFilaments)
+        np.savetxt(SAVE_SEED + '/' + 'zaHalos.txt', self.zaHalos)
+        np.savetxt(SAVE_SEED + '/' + 'jacFree.txt', self.jacFree)
+        np.savetxt(SAVE_SEED + '/' + 'jacFilaments.txt', self.jacFilaments)
+        np.savetxt(SAVE_SEED + '/' + 'jacHalos.txt', self.jacHalos)
+        np.savetxt(SAVE_SEED + '/' + 'jacExtra.txt', self.jacExtra)
+        np.savetxt(SAVE_SEED + '/' + 'tessFree.txt', self.tessFree)
+        np.savetxt(SAVE_SEED + '/' + 'tessFilaments.txt', self.tessFilaments)
+        np.savetxt(SAVE_SEED + '/' + 'tessHalos.txt', self.tessHalos)
+        np.savetxt(SAVE_SEED + '/' + 'tessExtra.txt', self.tessExtra)
         
-        # np.savetxt(SAVE_SEED + '/' + 'jacFreeVol.txt', self.jacFreeVol)
-        # np.savetxt(SAVE_SEED + '/' + 'jacFilamentsVol.txt', self.jacFilamentsVol)
-        # np.savetxt(SAVE_SEED + '/' + 'jacHalosVol.txt', self.jacHalosVol)
-        # np.savetxt(SAVE_SEED + '/' + 'jacExtraVol.txt', self.jacExtraVol)
+        np.savetxt(SAVE_SEED + '/' + 'jacFreeVol.txt', self.jacFreeVol)
+        np.savetxt(SAVE_SEED + '/' + 'jacFilamentsVol.txt', self.jacFilamentsVol)
+        np.savetxt(SAVE_SEED + '/' + 'jacHalosVol.txt', self.jacHalosVol)
+        np.savetxt(SAVE_SEED + '/' + 'jacExtraVol.txt', self.jacExtraVol)
        
 #==============================================================================
     def Snapshot_Procedures(self, a, b):
@@ -115,9 +115,9 @@ class Snapshots:
         Simulated_Determinates /= self.Jx_0
          
         Particles, Interpolated_Determinates, TL1, TL2 = self.IH.make_Particles(a, x, self.psi, Simulated_Jacobians, Simulated_Determinates)
-        Sorted_Volumes = self.JBM.Total_Struct_Determinate_Sorting(Particles[:,10], a)  
-        curves, flipCategories = self.JBM.Caustic_Connectivity(Simulated_Determinates, Interpolated_Determinates, self.JBM.Counts, Particles, Sorted_Volumes)
-        triangleMorph, causticVector, causticParticle, totalFlips, currentSign, previousSign, uniqueFlips, collapseTheta, eulerianVolumes = self.GCBM.Tessellation_Studies(Particles, a)  
+        # Sorted_Volumes = self.JBM.Total_Struct_Determinate_Sorting(Particles[:,10], a)  
+        # curves, flipCategories = self.JBM.Caustic_Connectivity(Simulated_Determinates, Interpolated_Determinates, self.JBM.Counts, Particles, Sorted_Volumes)
+        # triangleMorph, causticVector, causticParticle, totalFlips, currentSign, previousSign, uniqueFlips, collapseTheta, eulerianVolumes = self.GCBM.Tessellation_Studies(Particles, a)  
  
        
         '''Data and Plotting Group Calls'''

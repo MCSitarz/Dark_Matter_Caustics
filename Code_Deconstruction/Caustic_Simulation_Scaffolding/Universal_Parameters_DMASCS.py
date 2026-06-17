@@ -13,11 +13,10 @@ class Universal_Parameters:
         '''General notes and comments to be written into the records file.'''
         
         self.Random_Seed = '10292022'  
-        # 1234567890, 29102022, 22121994, 22051945, 21121994, 21051965, 17012000, 12221994, 
-        # 11071995, 11012000, 10292022, 4292024, 4202137, 2222019, 71195
-        self.Directory = '/Users/michaelsitarz/Documents/Stuff_Local/Argonne/'
-        self.output_parent_directory = 'DMASCS_Plots_v06_MSc_Figures_' + self.Random_Seed + '_256Np'
+        self.Directory = '/Users/michaelsitarz/Documents/Stuff_Local/GitHub/Zeldovich/Dark_Matter_Caustics/'
+        self.output_parent_directory = 'DMASCSvariant_' + self.Random_Seed
         print('Random Seed Loaded:' + self.Random_Seed)
+        print()
         
         '''Initial statistical parameters for Gaussian random fields.'''
         self.sigma = 1.0
@@ -27,23 +26,19 @@ class Universal_Parameters:
         self.L = 100.0
         
         '''Resolution Options'''
-        self.Np = 2**8
-        print('Number of Simulated Particles:', self.Np)
+        self.Np = 2**9
         self.qpf = 2
         self.Nf = self.Np * self.qpf
         self.subdiv = 4
-        # self.sw = 200.0
         self.k_cutoff = 5 * (2*np.pi / self.Np)
-    
-        '''My Work'''
-        '''k_box = x_box = 128^2, phyiscal size L
-        Nyquist Frequency = 64 corresponds to wavelength lambda = L/64
-        Sharp Cutoff at k = 3 (l_cutoff ~ L/3 resolution = (L/3 / (L/64) ~ 21 grid points'''
+        print('Number of Simulated Particles:', self.Np)
+        print()
+
 
         '''Time Domain Options'''      
         self.a0 = 0.01
         self.da = 0.01
-        self.duration = 10
+        self.duration = 100
         self.snap_array = np.arange(self.a0, self.a0 + (self.da * (self.duration)), step = self.da)
         self.snap_array = np.insert(self.snap_array, 0, 0)
         print('Snap Array to be used:', self.snap_array)
@@ -51,7 +46,7 @@ class Universal_Parameters:
         print('Growth Factor on a:', np.power(self.snap_array, 2/3))
         print()
         
-        self.Cosmology = 'EdS'
+        self.Cosmology = 'EdS' #Is this Einstein - de Sitter?
         print('Cosmology to be used:', self.Cosmology)
         
         if self.Cosmology == 'EdS':
@@ -70,7 +65,8 @@ class Universal_Parameters:
             
         print('========================================================================')
         print()
-          
+        
+    # '''Hella Plot Folders
 
     def controlDirectories(self):
         self.Control = self.Output_Folder + '/Control_Model_Figures'
@@ -361,3 +357,5 @@ class Universal_Parameters:
         self.DPAoCE = self.Angle + '/Eulerian_Dot_Plots_Angle_of_Collapse'
         if not os.path.exists(self.DPAoCE):
             os.mkdir(self.DPAoCE)
+
+    # '''

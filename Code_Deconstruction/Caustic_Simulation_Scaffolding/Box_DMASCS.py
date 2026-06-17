@@ -7,13 +7,15 @@ Created on Mon Jan 22 18:21:57 2024
 import random
 import numpy as np
 import scipy as sp
-np.random.seed(10292022)
+# np.random.seed(10292022)
 from scipy.fftpack import fft
 
 class Box:
     def __init__(self, UP, C):
         self.UP = UP
         self.C = C
+        # np.random.seed(self.UP.Random_Seed)
+
         
         '''Initialize and set up grids for simualtion.'''
         self.Mass_Resolution = self.UP.L / self.UP.Np
@@ -89,7 +91,8 @@ class Box:
     def make_Initial_Density_Field(self):
         MT = self.make_Matter_Transfer()
         SF = self.make_Window_Function()
-        initial_perturbations = np.loadtxt(self.UP.Output_Folder + '/Delta_Initial_Field.txt')
+        initial_perturbations = np.random.normal(self.UP.mu, self.UP.sigma, (self.UP.Np, self.UP.Np))
+        # initial_perturbations = np.loadtxt(self.UP.Output_Folder + '/Delta_Initial_Field.txt')
         Window_Function = SF(self.make_K(self.UP.Np))
         Tilde_Delta_Field = sp.fftpack.fftn(initial_perturbations) * np.sqrt(MT(self.k_norm)) * Window_Function
         Initial_Density_Field = sp.fftpack.ifftn(Tilde_Delta_Field).real
