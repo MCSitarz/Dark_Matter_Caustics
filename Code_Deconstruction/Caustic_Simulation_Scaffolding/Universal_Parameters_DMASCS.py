@@ -23,7 +23,7 @@ class Universal_Parameters:
         self.mu = 0.0
         
         '''Box side length, L'''
-        self.L = 100.0
+        self.L = 100.0 #Mpc NEED UNIT CHECK
         
         '''Resolution Options'''
         self.Np = 2**9
@@ -36,7 +36,7 @@ class Universal_Parameters:
 
 
         '''Time Domain Options'''      
-        self.a0 = 0.01
+        self.a0 = 0.01 # NEED UNIT CHECK
         self.da = 0.01
         self.duration = 100
         self.snap_array = np.arange(self.a0, self.a0 + (self.da * (self.duration)), step = self.da)
@@ -53,7 +53,7 @@ class Universal_Parameters:
             self.n = 0.0 # spectral index
             self.H0 = 71.0 # Hubble uncertainty parameter
             self.Omega_m = 1.0 # matter density
-            self.Omega_Lambda = 0.0# dark energy density
+            self.Omega_Lambda = 0.0 # dark energy density
             self.Omega_K = 1 - self.Omega_m - self.Omega_Lambda # Curvature under 1 - self.Omega_m - self.Omega_Lambda
             self.GN = 3.2 * self.Omega_m * self.H0**2 # m3 /(kg s), Newtonian Gravity
             self.rho_crit = (3 * self.H0**2) / (8 * np.pi * self.GN)  # g/cm^3, using the formula (3H0^2)/(8piGN)
