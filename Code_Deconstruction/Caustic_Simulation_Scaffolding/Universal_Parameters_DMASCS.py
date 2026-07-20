@@ -12,7 +12,7 @@ class Universal_Parameters:
         print('========================================================================')
         '''General notes and comments to be written into the records file.'''
         
-        self.Random_Seed = '10292022'  
+        self.Random_Seed = 'EllenoraMeeting'  
         self.Directory = '/Users/michaelsitarz/Documents/Stuff_Local/GitHub/Zeldovich/Dark_Matter_Caustics/'
         self.output_parent_directory = 'DMASCSvariant_' + self.Random_Seed
         print('Random Seed Loaded:' + self.Random_Seed)
@@ -38,7 +38,7 @@ class Universal_Parameters:
         '''Time Domain Options'''      
         self.a0 = 0.01 # NEED UNIT CHECK
         self.da = 0.01
-        self.duration = 100
+        self.duration = 10
         self.snap_array = np.arange(self.a0, self.a0 + (self.da * (self.duration)), step = self.da)
         self.snap_array = np.insert(self.snap_array, 0, 0)
         print('Snap Array to be used:', self.snap_array)
